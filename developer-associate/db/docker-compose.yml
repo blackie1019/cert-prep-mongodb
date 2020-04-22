@@ -1,0 +1,52 @@
+version: "3"
+services:
+  
+  mongo1:
+    container_name: mongo1
+    image: mongo    
+    volumes:
+      - ./conf/mongod1.conf:/etc/mongod.conf
+      - ./data/mongo1:/data/db
+      - ./data/logs/mongo1:/root/logs
+    expose:
+      - 27017
+    restart: always
+    entrypoint: [ "mongod", "--bind_ip_all", "--replSet", "rs0", "--config", "/etc/mongod.conf" ]
+
+  mongo2:
+    container_name: mongo2
+    image: mongo
+    volumes:
+      - ./conf/mongod2.conf:/etc/mongod.conf
+      - ./data/mongo2:/data/db
+      - ./data/logs/mongo2:/root/logs
+    expose:
+      - 27017
+    restart: always
+    entrypoint: [ "mongod", "--bind_ip_all", "--replSet", "rs0", "--config", "/etc/mongod.conf" ]
+
+  mongo3:
+    container_name: mongo3
+    image: mongo
+    volumes:
+      - ./conf/mongod3.conf:/etc/mongod.conf
+      - ./data/mongo3:/data/db
+      - ./data/logs/mongo3:/root/logs
+    expose:
+      - 27017
+    restart: always
+    entrypoint: [ "mongod", "--bind_ip_all", "--replSet", "rs0", "--config", "/etc/mongod.conf" ]
+
+  mongo-init:
+    image: mongo
+    volumes:
+      - ./scripts:/scripts
+    restart: "no"
+    command: >
+      /bin/bash -c "
+      sleep 15;
+      bash /scripts/mongo_setup.sh;"
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
