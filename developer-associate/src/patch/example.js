@@ -1,4 +1,5 @@
 //mongo demo --eval 'var env="demo",db_module="accounts";' example.js
+//mongo demo --eval 'var env="demo",db_module="gaming";' example.js
 const inputArgs = {
   db_module:db_module,
   folderPath : `data-by-env/${env}/${db_module}/mongo/`
@@ -26,6 +27,7 @@ try {
     load(currentFile.fileName);
   }
   print(`database : ${db.getName()}, total count : ${db.member.count()}`);
+  print(`database : ${db.getName()}, total count : ${db.match.count()}`);
   print("load patch files done!");
 } catch (error) {
   printjson(error);
