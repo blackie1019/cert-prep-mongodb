@@ -1,0 +1,1 @@
+db.member.insert({"name":"testmember1"});
