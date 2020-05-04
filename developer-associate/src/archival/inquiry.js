@@ -1,3 +1,5 @@
+// db.submitted_202005.insert({"stake":30,"status":1});
+
 db.getCollection('submitted_202004').aggregate([{
     $limit: 1
   }, {
