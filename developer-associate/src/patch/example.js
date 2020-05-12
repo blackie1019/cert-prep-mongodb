@@ -19,12 +19,18 @@ try {
           })
         }
   });
+
+  patchFiles = patchFiles.sort(function (a, b) {
+    return a.fileName > b.fileName ? 1 : -1;
+  });
+
   printjson(patchFiles);
   for (let index = 0; index < patchFiles.length; index++) {
     let currentFile = patchFiles[index];
     db=db.getSiblingDB(inputArgs.db_module);
     print(currentFile.fileName);
-    load(currentFile.fileName);
+    let status = load(currentFile.fileName);
+    print(status);
   }
   print(`database : ${db.getName()}, total count : ${db.member.count()}`);
   print(`database : ${db.getName()}, total count : ${db.match.count()}`);

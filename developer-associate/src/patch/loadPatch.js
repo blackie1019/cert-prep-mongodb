@@ -19,11 +19,17 @@ try {
       });
     }
   });
+
+  patchFiles = patchFiles.sort(function (a, b) {
+    return a.fileName > b.fileName ? 1 : -1;
+  });
+
   for (let index = 0; index < patchFiles.length; index++) {
     let currentFile = patchFiles[index];
     print(currentFile.fileName);
     let db = conn.getDB(currentFile.dbName);
-    load(currentFile.fileName);
+    let status = load(currentFile.fileName);
+    print(status);
   }
   print("load patch files done!");
 } catch (error) {
