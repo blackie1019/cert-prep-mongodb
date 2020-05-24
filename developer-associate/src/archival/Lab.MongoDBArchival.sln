@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.MongoDBArchival.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.MongoDBArchival.Test", "src\Lab.MongoDBArchival.Test\Lab.MongoDBArchival.Test.csproj", "{2BC92FD4-5027-46CC-8530-EDE59FF6E8A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.MongoDBArchival.Core", "Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj", "{9F1DEF4A-F7E3-4D19-8CD6-A526F45EDAB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.MongoDBArchival.Core", "src\Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj", "{5EC10D24-1775-42DB-B66A-884BF3F76E6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{2BC92FD4-5027-46CC-8530-EDE59FF6E8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BC92FD4-5027-46CC-8530-EDE59FF6E8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC92FD4-5027-46CC-8530-EDE59FF6E8A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F1DEF4A-F7E3-4D19-8CD6-A526F45EDAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F1DEF4A-F7E3-4D19-8CD6-A526F45EDAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F1DEF4A-F7E3-4D19-8CD6-A526F45EDAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F1DEF4A-F7E3-4D19-8CD6-A526F45EDAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EC10D24-1775-42DB-B66A-884BF3F76E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EC10D24-1775-42DB-B66A-884BF3F76E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EC10D24-1775-42DB-B66A-884BF3F76E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EC10D24-1775-42DB-B66A-884BF3F76E6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
