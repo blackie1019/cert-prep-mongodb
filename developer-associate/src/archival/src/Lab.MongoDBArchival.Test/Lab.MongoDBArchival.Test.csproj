@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj" />
+      <ProjectReference Include="..\Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj" />
     </ItemGroup>
 
 </Project>

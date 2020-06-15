@@ -7,7 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj" />
+      <ProjectReference Include="..\Lab.MongoDBArchival.Core\Lab.MongoDBArchival.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="IdGen" Version="2.4.0" />
+      <PackageReference Include="Powell.CouponCode" Version="1.0.3" />
     </ItemGroup>
 
 </Project>
