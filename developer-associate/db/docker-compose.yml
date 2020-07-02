@@ -9,6 +9,8 @@ services:
       - ./conf/mongod1.conf:/etc/mongod.conf
       - ./data/mongo1:/data/db
       - ./data/logs/mongo1:/root/logs
+    ports: 
+      - "27117:27017"
     expose:
       - 27017
     restart: always
@@ -37,6 +39,8 @@ services:
       - ./conf/mongod3.conf:/etc/mongod.conf
       - ./data/mongo3:/data/db
       - ./data/logs/mongo3:/root/logs
+    ports: 
+      - "27137:27017"
     expose:
       - 27017
     restart: always

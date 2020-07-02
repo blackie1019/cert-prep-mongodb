@@ -1,25 +1,35 @@
 ﻿using System;
-using IdGen;
-using Powells.CouponCode;
+using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace Lab.MongoDBArchival.Core
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var ccb = new CouponCodeBuilder();
-            var code = ccb.Generate(new Options {Plaintext = GetCouponCodeByMember("test001"), Parts = 2, PartLength = 4});
-
-            Console.WriteLine($"CouponCode:{code}");
-            Console.ReadLine();
+            await ExecuteMongoScripts();
         }
 
-        public static string GetCouponCodeByMember(string memberCode)
+        private static async Task ExecuteMongoScripts()
         {
-            var idGenerator = new IdGenerator( DateTime.Now.Second);
-            var id = idGenerator.CreateId().ToString();
-            return $"{memberCode}:{id}";
+            var client = new MongoClient("mongodb://localhost:27117,localhost:27127, localhost:27137/?replicaSet=rs0");
+            var database = client.GetDatabase("foo");
+            var collection = database.GetCollection<BsonDocument>("bar");
+
+            var newUser = $"test_{ DateTime.Now.ToString()}";
+            //await collection.InsertOneAsync(new BsonDocument("Name", newUser));
+
+           var list = await collection.WithReadPreference(ReadPreference.Secondary).Find(new BsonDocument("Name", "test_07/03/2020 00:09:47"))
+                .ToListAsync();
+
+            foreach (var document in list)
+            {
+                Console.WriteLine(document["Name"]);
+            }
+
+            Console.ReadLine();
         }
     }
 }
